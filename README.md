@@ -26,7 +26,7 @@ A simple RESTful API built with Express.js to manage books, including functional
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Ya-Red7/Book-Management-API.git
    ```
 2. Navigate into the project directory:
    ```bash
