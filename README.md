@@ -1,7 +1,10 @@
+Here’s an upgraded version of your README to reflect that your API now uses MongoDB for data storage instead of an in-memory data store:
+
+---
+
 ## **Book Management REST API**
 
-A simple RESTful API built with Express.js to manage books, including functionalities to create, read, update, and delete book records. This API uses an in-memory data store, making it easy to get started without requiring a database.
-
+A simple RESTful API built with **Express.js** to manage books, including functionalities to create, read, update, and delete book records. This API now uses **MongoDB** as its database, offering persistent storage for book data.
 
 ### **Features**
 - Get all books.
@@ -10,18 +13,18 @@ A simple RESTful API built with Express.js to manage books, including functional
 - Update an existing book.
 - Delete a book.
 
-
 ### **Technologies Used**
 - **Node.js**: JavaScript runtime environment.
 - **Express.js**: Web framework for building RESTful APIs.
+- **MongoDB**: NoSQL database used for persistent data storage.
+- **Mongoose**: MongoDB ODM (Object Document Mapping) library to interact with MongoDB.
 - **Joi**: Data validation library for request payload validation.
-
 
 ### **Prerequisites**
 - **Node.js**: Make sure you have Node.js installed. You can download it from [Node.js Official Website](https://nodejs.org/).
-
----
-
+- **MongoDB**: Make sure you have MongoDB installed locally or use a cloud MongoDB service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+  - If you're using MongoDB locally, ensure the MongoDB server is running on `localhost:27017`.
+  
 ### **Installation**
 
 1. Clone the repository:
@@ -37,6 +40,13 @@ A simple RESTful API built with Express.js to manage books, including functional
    npm install
    ```
 
+4. **Configure MongoDB URI (Optional)**:  
+   If you're using **MongoDB Atlas** or a remote database, update the `MONGODB_URI` in the `.env` file (create one if it doesn't exist):
+   ```bash
+   MONGODB_URI=mongodb://localhost:27017
+   ```
+   This URI connects to your MongoDB database. Replace the default `localhost` URL with the URI of your MongoDB Atlas or any remote MongoDB service.
+
 ---
 
 ### **Usage**
@@ -51,7 +61,7 @@ A simple RESTful API built with Express.js to manage books, including functional
    ```
 
 2. The API will be available at:
-   ```
+   ```bash
    http://localhost:3000
    ```
 
@@ -84,3 +94,25 @@ The API validates incoming requests using the **Joi** library. Below are the val
 
 ---
 
+### **MongoDB Integration**
+
+This API now uses **MongoDB** for storing book data persistently. It interacts with MongoDB using **Mongoose**, which simplifies querying, updating, and deleting records.
+
+- **Database Name**: `booksDB`
+- **Collection Name**: `books`
+- **Counter Collection**: A separate collection `counter` is used to manage and generate incremental IDs for books.
+
+**MongoDB URI**: The default URI connects to a local MongoDB instance (`mongodb://localhost:27017`). If you're using MongoDB Atlas or a remote MongoDB service, modify the `URI` in the `.env` file.
+
+---
+
+### **MongoDB Setup**
+
+- **MongoDB**: You need MongoDB running either locally or on a cloud instance like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). 
+- **Counter Collection**: The API uses a `counter` collection to manage incremental book IDs. The counter collection stores a sequence for generating unique IDs for books. Here’s an example document:
+  ```json
+  {
+    "_id": "booksId",
+    "seq": 20
+  }
+  ```
