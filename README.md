@@ -1,10 +1,6 @@
-Here’s an upgraded version of your README to reflect that your API now uses MongoDB for data storage instead of an in-memory data store:
-
----
-
 ## **Book Management REST API**
 
-A simple RESTful API built with **Express.js** to manage books, including functionalities to create, read, update, and delete book records. This API now uses **MongoDB** as its database, offering persistent storage for book data.
+A simple RESTful API built with **Express.js** to manage books, including functionalities to create, read, update, and delete book records. This API uses **MongoDB** as its database, offering persistent storage for book data.
 
 ### **Features**
 - Get all books.
@@ -17,7 +13,6 @@ A simple RESTful API built with **Express.js** to manage books, including functi
 - **Node.js**: JavaScript runtime environment.
 - **Express.js**: Web framework for building RESTful APIs.
 - **MongoDB**: NoSQL database used for persistent data storage.
-- **Mongoose**: MongoDB ODM (Object Document Mapping) library to interact with MongoDB.
 - **Joi**: Data validation library for request payload validation.
 
 ### **Prerequisites**
@@ -41,9 +36,9 @@ A simple RESTful API built with **Express.js** to manage books, including functi
    ```
 
 4. **Configure MongoDB URI (Optional)**:  
-   If you're using **MongoDB Atlas** or a remote database, update the `MONGODB_URI` in the `.env` file (create one if it doesn't exist):
+   If you're using **MongoDB Atlas** or a remote database, update the `URI` in the `.env` file (create one if it doesn't exist):
    ```bash
-   MONGODB_URI=mongodb://localhost:27017
+   URI=mongodb://localhost:27017
    ```
    This URI connects to your MongoDB database. Replace the default `localhost` URL with the URI of your MongoDB Atlas or any remote MongoDB service.
 
@@ -96,7 +91,7 @@ The API validates incoming requests using the **Joi** library. Below are the val
 
 ### **MongoDB Integration**
 
-This API now uses **MongoDB** for storing book data persistently. It interacts with MongoDB using **Mongoose**, which simplifies querying, updating, and deleting records.
+This API uses **MongoDB** for storing book data persistently.
 
 - **Database Name**: `booksDB`
 - **Collection Name**: `books`
